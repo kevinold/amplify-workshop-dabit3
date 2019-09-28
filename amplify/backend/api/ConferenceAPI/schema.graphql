@@ -1,7 +1,10 @@
 type Talk
   @model
   @auth(
-    rules: [{ allow: groups, groupsField: "groups", groupClaim: "user_groups" }]
+    rules: [
+      { allow: owner }
+      { allow: groups, groupsField: "groups", groupClaim: "user_groups" }
+    ]
   ) {
   id: ID!
   clientId: ID
@@ -9,4 +12,5 @@ type Talk
   description: String!
   speakerName: String!
   speakerBio: String!
+  groups: [String!]
 }
