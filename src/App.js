@@ -1,13 +1,13 @@
 import React, { useEffect, useReducer } from "react";
 import { withAuthenticator } from "aws-amplify-react";
 import uuid from "uuid/v4";
-import { API, graphqlOperation } from "aws-amplify";
+import Amplify, { API, graphqlOperation } from "aws-amplify";
 import awsconfig from "./aws-exports";
 import { listTalks } from "./graphql/queries";
 import { createTalk } from "./graphql/mutations";
 import { onCreateTalk } from "./graphql/subscriptions";
 
-API.configure(awsconfig);
+Amplify.configure(awsconfig);
 
 const CLIENTID = uuid();
 
