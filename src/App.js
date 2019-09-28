@@ -1,13 +1,20 @@
 import React, { useEffect, useReducer } from "react";
 import { withAuthenticator } from "aws-amplify-react";
 import uuid from "uuid/v4";
-import Amplify, { API, graphqlOperation } from "aws-amplify";
+import Amplify, { Auth, API, graphqlOperation } from "aws-amplify";
 import awsconfig from "./aws-exports";
 import { listTalks } from "./graphql/queries";
 import { createTalk } from "./graphql/mutations";
 import { onCreateTalk } from "./graphql/subscriptions";
 
-Amplify.configure(awsconfig);
+Amplify.configure({
+  API: {
+    graphql_headers: async () => ({
+      Authorization: (await Auth.currentSession()).getIdToken().getJwtToken()
+    })
+  },
+  ...awsconfig
+});
 
 const CLIENTID = uuid();
 
@@ -76,7 +83,8 @@ async function CreateTalk(state, dispatch) {
     description,
     speakerName,
     speakerBio,
-    clientId: CLIENTID
+    clientId: CLIENTID,
+    groups: ["test-group1"]
   };
 
   const updatedTalkArray = [...state.talks, talk];
