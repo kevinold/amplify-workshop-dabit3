@@ -1,0 +1,12 @@
+type Talk
+  @model
+  @auth(
+    rules: [{ allow: groups, groupsField: "groups", groupClaim: "user_groups" }]
+  ) {
+  id: ID!
+  clientId: ID
+  name: String!
+  description: String!
+  speakerName: String!
+  speakerBio: String!
+}

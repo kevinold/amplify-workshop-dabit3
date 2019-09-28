@@ -1,0 +1,14 @@
+{
+    "trigger": true,
+    "modules": [
+        "alter-claims"
+    ],
+    "parentResource": "amplifyreactapp304200aa",
+    "functionName": "amplifyreactapp304200aaPreTokenGeneration",
+    "parentStack": "auth",
+    "triggerEnvs": "[]",
+    "triggerTemplate": "PreTokenGeneration.json.ejs",
+    "roleName": "amplifyreactapp304200aaPreTokenGeneration",
+    "skipEdit": true,
+    "resourceName": "amplifyreactapp304200aaPreTokenGeneration"
+}

@@ -9,6 +9,14 @@
             "UnauthRoleName": "amplifyreactapp-dev-20190928122732-unauthRole",
             "StackName": "amplifyreactapp-dev-20190928122732",
             "StackId": "arn:aws:cloudformation:us-east-1:316137363844:stack/amplifyreactapp-dev-20190928122732/41688430-e215-11e9-adfc-0e984b426fca"
+        },
+        "categories": {
+            "function": {
+                "amplifyreactapp304200aaPreTokenGeneration": {}
+            },
+            "auth": {
+                "amplifyreactapp304200aa": {}
+            }
         }
     }
 }
